@@ -962,3 +962,25 @@
 
 //     return max;
 // }
+
+// ________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+// Задача: Напиши функцію, яка знаходить друге за величиною число в масиві.
+
+// function secondMax(num) {
+//     if (num.length < 2) return null;
+
+//     let max = -Infinity;
+//     let secondMax = -Infinity;
+
+//     for (let i = 0; i < num.length; i++) {
+//         if (num[i] > max) {
+//             secondMax = max;
+//             max = num[i];
+//         } else if (num[i] > secondMax && num[i] < max) {
+//             secondMax = num[i];
+//         }
+//     }
+
+//     return secondMax;
+// }
