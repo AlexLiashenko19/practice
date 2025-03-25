@@ -154,3 +154,71 @@
 
 //     return arr.filter(element => voltes.test(element)).sort();
 // }
+
+// Напиши функцию, которая принимает строку и возвращает строку, состоящую из уникальных символов (каждый символ появляется в строке только один раз).
+
+// function func(str) {
+//     if (typeof str !== "string") {
+//         return false;
+//     }
+
+//     const correctStr = str.trim()
+//     let obj = {};
+//     let result = [];
+
+//     for (let i = 0; i < correctStr.length; i++) {
+//         obj[correctStr[i]] = (obj[correctStr[i]] || 0) + 1
+//     }
+
+//     for (let key in obj) {
+//         if (obj[key] === 1) {
+//             result.push(key)
+//         }
+//     }
+
+//     return result;
+// }
+
+// ________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+// Нужно написать функцию, которая находит все уникальные элементы из двух массивов и возвращает новый массив с этими элементами. Используй объект для подсчета уникальных элементов.
+
+// function func(arr1, arr2) {
+//     if (!Array.isArray(arr1) && !Array.isArray(arr2)) {
+//         return false;
+//     }
+
+//     let obj = {};
+
+//     arr1.forEach(element => {
+//         obj[element] = (obj[element] || 0) + 1;
+//     });
+
+//     arr2.forEach(element => {
+//         obj[element] = (obj[element] || 0) + 1;
+//     });
+
+//     let filteredObj = Object.keys(obj).filter(key => obj[key] === 1);
+
+//     return filteredObj;
+// }
+
+// ________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+// У нас есть два массива объектов. 
+// Нужно объединить их, и затем оставить только те объекты, у которых есть ключ id с уникальным значением (то есть, чтобы объекты с одинаковыми значениями по ключу id были удалены).
+
+// function func(arr1, arr2) {
+//     if (!Array.isArray(arr1) || !Array.isArray(arr2)) {
+//         return false;
+//     }
+    
+//     const newArr = arr1.concat(arr2);
+//     let obj = {};
+
+//     newArr.forEach(element => {
+//         obj[element.id] = element
+//     });
+
+//     return Object.values(obj)
+// }
