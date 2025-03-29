@@ -906,7 +906,6 @@
 // Фібоначчі
 // Напишіть функцію, яка обчислює n-й член послідовності Фібоначчі рекурсивно та ітеративно.
 
-
 // function fibonacci(n) {
 //     return n <= 1 ? n : fibonacci(n - 1) + fibonacci(n - 2);
 // }
@@ -1065,3 +1064,60 @@
 
 //     return result;
 // };
+
+// ________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+// Теперь попробуй реализовать myReduce(), который работает так же, как стандартный Array.prototype.reduce().
+
+// Твоя задача:
+// Реализовать метод myReduce(callback, initialValue), который:
+
+// Вызывает callback для каждого элемента массива.
+
+// Накапливает результат вычислений и передаёт его в следующий вызов callback.
+
+// Если initialValue передан, он используется как начальное значение аккумулятора. Если нет — берётся первый элемент массива, а перебор начинается со второго.
+
+// Array.prototype.myReduce = function (callback, initialValue) {
+//   if (typeof callback !== "function") {
+//     throw new TypeError("Callback must be a function");
+//   }
+
+//   let accumulator;
+//   let startIndex;
+
+//     // Если передано начальное значение
+//     if (initialValue !== undefined) {
+//         accumulator = initialValue;
+//         startIndex = 0; // Начинаем с первого элемента
+//     } else {
+//         if (this.length === 0) {
+//             throw new TypeError("Reduce of empty array with no initial value");
+//         }
+//         accumulator = this[0]; // Первый элемент массива становится аккумулятором
+//         startIndex = 1; // Начинаем со второго элемента
+//     }
+
+//     for (let i = startIndex; i < this.length; i++) {
+//         accumulator = callback(accumulator, this[i], i, this);
+//     }
+
+//     return accumulator;
+// };
+
+// ________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+// Создай метод Array.prototype.mySome, который работает как Array.prototype.some().
+
+// Как работает some()?
+// Метод проверяет, есть ли хотя бы один элемент в массиве, для которого callback возвращает true. Если такой элемент найден — метод возвращает true, иначе false.
+
+// Array.prototype.mySome = function (callback) {
+//   if (typeof callback !== "function") {
+//     throw new TypeError("Callback must be a function");
+//   }
+
+//   this.forEach(el => {
+    
+//   })
+// }
