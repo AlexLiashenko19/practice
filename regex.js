@@ -145,12 +145,20 @@
 // 1️⃣4️⃣ Извлечение всех URL-адресов из текста
 // Напиши регулярное выражение для извлечения всех URL-адресов из текста. Пример:
 
-// Вход: "Visit us at https://www.example.com or http://www.test.com!"
+// const text = 'Visit us at https://www.example.com or http://www.test.com!';
+
+// const regex = /https?:\/\/[^\s]+/g;
 
 // Выход: ["https://www.example.com", "http://www.test.com"]
 
+// console.log(text.match(regex))
+
 // 1️⃣5️⃣ Проверка времени в 24-часовом формате
 // Напиши регулярное выражение для проверки времени в 24-часовом формате HH:MM, где:
+
+// const text = "23:45, 25:30";
+
+// const regex = /[(0-2)(0-4)]+\:[(0-6)(0-9)]+/;
 
 // 00:00 — минимальное время,
 
@@ -158,13 +166,11 @@
 
 // Пример:
 
-// Вход: "23:45"
+// console.log(text.match(regex))
 
-// Выход: true
+// console.log(regex.test("23:45")); // true
 
-// Вход: "25:30"
-
-// Выход: false
+// console.log(regex.test("25:30")); // false
 
 // 1️⃣6️⃣ Преобразование строки в кэмелкейс
 // Напиши регулярное выражение для преобразования строки в кэмелкейс (camelCase). Пример:
