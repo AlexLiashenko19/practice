@@ -184,12 +184,20 @@
 // 1️⃣7️⃣ Извлечение всех чисел из строки
 // Напиши регулярное выражение для извлечения всех чисел (целых и с плавающей точкой) из строки. Пример:
 
-// Вход: "I have 3 apples and 2.5 bananas"
+// const text = "I have 3 apples and 2.5 bananas, also -4.75 oranges and 10 grapes";
+// const regex = /-?\d+(\.\d+)?/g;
 
-// Выход: [3, 2.5]
+// console.log(text.match(regex));  
+
+// ["3", "2.5", "-4.75", "10"]
 
 // 1️⃣8️⃣ Проверка даты в формате DD/MM/YYYY
 // Напиши регулярное выражение для проверки даты в формате DD/MM/YYYY, где:
+
+const text = "I have 31/02/1998";
+const regex = /^\d{2}\/\d{2}\/\d{4}$/g;
+
+console.log(text.match(regex));  
 
 // DD — день (от 01 до 31),
 
