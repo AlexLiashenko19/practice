@@ -48,8 +48,10 @@
 
 // 3️⃣ Перевірка правильності email
 
-// const regex = /^[\w.%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; // Напиши вираз для перевірки email
-// console.log(regex.test("test@example.com")); // true
+// const text = 'dfvffdv fdvfdvd 234 test@example.com ccdsd test_1-2+3@example.com123'
+
+// const regex = /[\w\-\+]+@[\w.]+\.[a-z]+/g; // Напиши вираз для перевірки email
+// console.log(text.match(regex)); // true
 // console.log(regex.test("invalid-email")); // false
 
 // 4️⃣ Перевірка телефонного номера (формат: +380123456789)
@@ -90,12 +92,13 @@
 
 // 9️⃣ Перевірити, чи рядок є дійсним URL
 
-// const regexURL = /(^https?):\/\/[\w]+\./;
-// console.log(regexURL.test("https://www.example.com")); // true
-// console.log(regexURL.test("http://example.com")); // true
-// console.log(regexURL.test("ftp://example.com")); // false
-// console.log(regexURL.test("https://example.com/path?query=1&another=2")); // true
-// console.log(regexURL.test("http://example.com/")); // true
+// const regexURL = /https?\:\/\//;
+
+// console.log(regexURL.match("https://www.example.com")); // true
+// console.log(regexURL.match("http://example.com")); // true
+// console.log(regexURL.match("ftp://example.com")); // false
+// console.log(regexURL.match("https://example.com/path?query=1&another=2")); // true
+// console.log(regexURL.match("http://example.com/")); // true
 
 // 🔟 Перевірка дати у форматі "YYYY-MM-DD"
 
@@ -109,9 +112,11 @@
 // (555) 123-4567
 // 555-123-4567
 
-// const regex = /^(?:\+?\d{1,2}\s?)?(\()?(\d{3})(?(1)\))[\s\-]?\d{3}[\s\-]?\d{4}$/;
+const text = 'gergt grtgr ffddf +1 (555) 123-4567 gtrgrf ttrr 555 123 4567 ttrg 555-123-4567hg ';
 
-// console.log(regex.test("+1 (555) 123-4567")); // true
+const regex = /(\+?)\d+[0-9\-)(\s]{8,16}(?:\d)/g;
+
+console.log(text.match(regex)); // true
 // console.log(regex.test("(555) 123-4567")); // true
 // console.log(regex.test("555-123-4567")); // true
 // console.log(regex.test("+1 555 123 4567")); // true
@@ -147,7 +152,7 @@
 
 // const text = 'Visit us at https://www.example.com or http://www.test.com!';
 
-// const regex = /https?:\/\/[^\s]+/g;
+// const regex = /https?:\/\/[^\s]+\.[a-z]$/g;
 
 // Выход: ["https://www.example.com", "http://www.test.com"]
 
@@ -194,8 +199,8 @@
 // 1️⃣8️⃣ Проверка даты в формате DD/MM/YYYY
 // Напиши регулярное выражение для проверки даты в формате DD/MM/YYYY, где:
 
-// const text = "I have 31/02/1998";
-// const regex = /\b\d{2}\/\d{2}\/\d{4}\b/g;
+// const text = "I have 32/02/1998";
+// const regex = /\b([0]){2}\/\d{2}\/\d{4}\b/g;
 
 // console.log(text.match(regex));  
 
