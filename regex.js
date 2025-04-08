@@ -255,36 +255,53 @@ const data = `
 `;
 
 function groupAmountOfGrivnasByDate(str, freshCourses) {
-  const regex = /(\d+(?:[.,]\d*)?)(\s*(грн|\$|€))/gi;
-  const lines = str.split("\n").filter((line) => line.trim() !== "");
+  const regex = /\d+(\.?)\d+|(грн|$|€)/gi;
+  const lines = str
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean);
+
   const result = {};
   let totalSum = 0;
 
   lines.forEach((line) => {
-    const date = line.split(" ")[1]; // Получаем дату
-    let matches;
+    const dateMatch = line.match(/(\d{2}\.\d{2})/);
+    if (!dateMatch) return;
 
-    while ((matches = regex.exec(line)) !== null) {
-      let amount = parseFloat(matches[1].replace(",", ".")); // Сумма
-      const currency = matches[3]; // Валюта
+    const date = dateMatch[1];
 
-      // Конвертируем сумму в гривны
-      if (currency === "грн") {
-        // Сумма уже в гривнах
-      } else if (currency === "$") {
-        amount *= freshCourses.usd;
-      } else if (currency === "€") {
-        amount *= freshCourses.eur;
+    let match;
+    while ((match = regex.exec(line)) !== null) {
+      let amount = parseFloat(match[1].replace(",", "."));
+      const currency = match[2];
+
+      if (isNaN(amount)) continue;
+
+      switch (currency) {
+        case "$":
+          amount *= freshCourses.usd;
+          break;
+        case "€":
+          amount *= freshCourses.eur;
+          break;
+        case "грн":
+        default:
+          // already in grivnas or unknown currency – no conversion
+          break;
       }
 
-      // Добавляем сумму к соответствующей дате
+      amount = Math.round(amount * 100) / 100;
+
       if (!result[date]) {
         result[date] = 0;
       }
+
       result[date] += amount;
       totalSum += amount;
     }
   });
+
+  totalSum = Math.round(totalSum * 100) / 100;
 
   return [result, totalSum];
 }
